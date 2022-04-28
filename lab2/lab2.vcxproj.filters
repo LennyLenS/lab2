@@ -26,5 +26,8 @@
     <ClInclude Include="dinamic_array.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="linked_list.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
