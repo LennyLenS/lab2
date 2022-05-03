@@ -142,7 +142,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dinamic_array.h" />
+    <ClInclude Include="array_sequence.h" />
+    <ClInclude Include="dynamic_array.h" />
     <ClInclude Include="linked_list.h" />
     <ClInclude Include="Sequence.h" />
   </ItemGroup>

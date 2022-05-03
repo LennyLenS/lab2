@@ -23,10 +23,13 @@
     <ClInclude Include="Sequence.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="dinamic_array.h">
+    <ClInclude Include="dynamic_array.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="linked_list.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="array_sequence.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>

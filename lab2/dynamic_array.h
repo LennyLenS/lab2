@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef DINAMIC_ARRAY_H
-#define DINAMIC_ARRAY_H
+#ifndef DYNAMIC_ARRAY_H
+#define DYNAMIC_ARRAY_H
 
 template<typename Type>
 class DynamicArray {
@@ -14,9 +14,11 @@ public:
 	DynamicArray(Type* items, int count);
 	DynamicArray(int count);
 	DynamicArray(DynamicArray<Type>& dynamicArray);
+
 	//getters
 	Type Get(int index) const;
 	int GetSize() const;
+
 	//setters
 	void Set(int index, Type value);
 	void Resize(int newSize);
