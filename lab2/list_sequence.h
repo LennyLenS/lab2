@@ -43,8 +43,8 @@ ListSequence<Type>::ListSequence(Type* items, int count) {
 }
 
 template<typename Type>
-ListSequence<Type>::ListSequence(LinkedList<Type>& LinkedList) {
-	this->arr = new LinkedList<Type>(LinkedList)
+ListSequence<Type>::ListSequence(LinkedList<Type>& linkedList) {
+	this->arr = new LinkedList<Type>(linkedList);
 }
 
 //getters

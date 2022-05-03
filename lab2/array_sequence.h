@@ -8,13 +8,13 @@
 template<typename Type>
 class ArraySequence : public Sequence<Type> {
 private:
-	DynanicArray<Type>* arr;
+	DynamicArray<Type>* arr;
 public:
 	//constructs
 	ArraySequence();
 	ArraySequence(Type* items, int count);
 	ArraySequence(int count);
-	ArraySequence(DynamicArray<Type>& DynamicArray);
+	ArraySequence(DynamicArray<Type>& dynamicArray);
 
 	//getters
 	Type GetFirst() const override;
@@ -51,8 +51,8 @@ ArraySequence<Type>::ArraySequence(int count) {
 }
 
 template<typename Type>
-ArraySequence<Type>::ArraySequence(DynamicArray<Type>& DynamicArray) {
-	this->arr = new DynamicArray<Type>(DynamicArray)
+ArraySequence<Type>::ArraySequence(DynamicArray<Type>& dynamicArray) {
+	this->arr = new DynamicArray<Type>(dynamicArray);
 }
 
 //getters
@@ -81,11 +81,11 @@ Sequence<Type>* ArraySequence<Type>::GetSubsequence(int startIndex, int endIndex
 	int size = endIndex - startIndex + 1;
 	Type* elements = new Type[size];
 	for (int i = 0; i < size; ++i) {
-		elemnts[i] = this->arr->Get(startIndex + i);
+		elements[i] = this->arr->Get(startIndex + i);
 	}
 
 	ArraySequence<Type>* ArraySeq = new ArraySequence(elements, size);
-	return ArraySequence;
+	return ArraySeq;
 }
 
 //setters

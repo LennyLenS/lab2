@@ -3,6 +3,9 @@
 #define MENU_H
 #include "vector_array.h"
 #include "vector_list.h"
+#include <iostream>
+#include <string.h>
+#include <conio.h>
 
 int show_main_menu(int position, int count_list_menu) {
 	system("cls");

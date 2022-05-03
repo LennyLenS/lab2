@@ -13,7 +13,9 @@ public:
     ArrayVector(Type* array, int count);
     ArrayVector(Sequence<Type>* sequence);
     // Destructor
-    ~ArrayVector() {}
+    ~ArrayVector() {
+        delete GetValue;
+    }
 };
 
 template <typename Type>
@@ -23,14 +25,14 @@ Sequence<Type>* ArrayVector<Type>::GetValue() const {
 
 template<typename Type>
 ArrayVector<Type>::ArrayVector(Type* array, int count) {
-    ArraySequence<Type>* arr = new ArraySequence(array, count);
+    ArraySequence<Type>* arr = new ArraySequence<Type>(array, count);
     this->value = arr;
     this->size = count;
 }
 
 template<typename Type>
 ArrayVector<Type>::ArrayVector(Sequence<Type>* sequence) {
-    this->value = arr;
+    this->value = new ArraySequence<Type>(sequence);
     this->size = sequence->GetLength;
 }
 #endif

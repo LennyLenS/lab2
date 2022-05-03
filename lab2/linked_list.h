@@ -5,7 +5,7 @@
 template<typename Type>
 class LinkedList {
 private:
-	struct element {
+	typedef struct element {
 		Type value;
 		Type* next;
 	}element;
@@ -54,9 +54,9 @@ LinkedList<Type>::LinkedList(Type* items, int count) {
 template<typename Type>
 LinkedList<Type>::LinkedList(LinkedList <Type>& list) {
 	this->lenght = 1;
-	memcpy(this->start->value, list->start->value, sizeof(Type));
+	memcpy(this->start->value, list->GetFirst(), sizeof(Type));
 	element* current = list->start->next;
-	for (int i = 1; i < list->; ++i) {
+	for (int i = 1; i < list->GetLength(); ++i) {
 		this->Append(current->value);
 		current = current->next;
 	}
@@ -81,7 +81,7 @@ Type LinkedList<Type>::GetLast() const {
 
 template<typename Type>
 Type LinkedList<Type>::Get(int index) const  {
-	if (index < 0 || index > = this->lenght) {
+	if (index < 0 || index >= this->lenght) {
 		throw std::out_of_range("Out of range");
 	}
 	element* current = this->start;
@@ -149,7 +149,7 @@ void LinkedList<Type>::Prepend(Type item) {
 template<typename Type>
 void LinkedList<Type>::InsertAt(Type item, int index) {
 	if (index < 0 || index >= lenght) {
-		trow throw std::out_of_range("Out of range");
+		throw std::out_of_range("Out of range");
 	}
 	if (this->lenght == 0) {
 		this->start->value = item;

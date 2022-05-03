@@ -1,0 +1,11 @@
+
+CFLAGS = -Wall -g
+
+all: lab2
+
+lab2: main.o
+		g++ main.o -o lab2
+
+main.o: main.cpp dynamic_array.h linked_list.h Sequence.h list_sequence.h array_sequence.h vector.h vector_array.h vector_list.h menu.h
+		g++ -c main.cpp
+			

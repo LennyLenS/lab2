@@ -7,7 +7,8 @@
 template<typename Type>
 class Vector {
 protected:
-	Sequense<Type>* value;
+	Sequence<Type>* value;
+	virtual Sequence<Type>* GetValue() const = 0;
 	int size;
 public:
 	//getters
@@ -20,13 +21,13 @@ public:
 	Vector<Type>* Sum(Vector<Type>* vec2);
 
 	//destructs
-	~Matrix() {}
+	virtual ~Vector() = 0;
 };
 
 //getters
 template<typename Type>
 Type Vector<Type>::Get(int index) const {
-	return this->value->Get(index)
+	return this->value->Get(index);
 }
 
 template<typename Type>
@@ -40,7 +41,7 @@ Vector<Type>* Vector<Type>::Multiplication(Type a) {
 	for (int i = 0; i < size; ++i) {
 		this->value->Set(this->value->Get(i) * a);
 	}
-	retrun this;
+	return this;
 }
 
 template<typename Type>
@@ -49,7 +50,7 @@ Type Vector<Type>::Multiplication(Vector<Type>* vec2) {
 	for (int i = 1; i < size; ++i) {
 		mult += this->value->Get(i) * vec2->Get(i);
 	}
-	retrun mult;
+	return mult;
 }
 
 template<typename Type>
@@ -57,6 +58,6 @@ Vector<Type>* Vector<Type>::Sum(Vector<Type>* vec2) {
 	for (int i = 0; i < size; ++i) {
 		this->value->Set(this->value->Get(i) + vec2->Get(i));
 	}
-	retrun this;
+	return this;
 }
 #endif

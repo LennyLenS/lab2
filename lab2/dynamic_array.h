@@ -6,7 +6,7 @@
 template<typename Type>
 class DynamicArray {
 private:
-	T* arr;
+	Type* arr;
 	int size;
 public:
 	//constructs
@@ -29,27 +29,27 @@ public:
 //constructs
 template<typename Type>
 DynamicArray<Type>::DynamicArray() {
-	arr = nullptr;
-	size = 0;
+	this->arr = nullptr;
+	this->size = 0;
 }
 
 template<typename Type>
 DynamicArray<Type>::DynamicArray(Type* items, int count) {
-	arr = new Type[count];
+	this->arr = new Type[count];
 	memcpy(arr, items, count * sizeof(Type));
-	size = count;
+	this->size = count;
 }
 
 template<typename Type>
 DynamicArray<Type>::DynamicArray(int count) {
-	arr = new Type[count];
-	size = count;
+	this->arr = new Type[count];
+	this->size = count;
 }
 
 template<typename Type>
 DynamicArray<Type>::DynamicArray(DynamicArray<Type>& dynamicArray) {
-	size = dynamicArray.GetSize();
-	arr = new Type[size];
+	this->size = dynamicArray.GetSize();
+	this->arr = new Type[size];
 	memcpy(arr, &dynamicArray, size * sizeof(Type));
 }
 
@@ -59,12 +59,12 @@ Type DynamicArray<Type>::Get(int index) const{
 	if (index < 0 || index >= size) {
 		throw std::out_of_range("Out of range");
 	}
-	return arr[index];
+	return this->arr[index];
 }
 
 template<typename Type>
 int DynamicArray<Type>::GetSize() const {
-	return size;
+	return this->size;
 }
 
 //setters
@@ -73,7 +73,7 @@ void DynamicArray<Type>::Set(int index, Type value) {
 	if (index < 0 || index >= size) {
 		throw std::out_of_range("Out of range");
 	}
-	memcpy(arr + index * sizeof(Type), &value, sizeof(Type));
+	memcpy(this->arr + index * sizeof(Type), &value, sizeof(Type));
 }
 
 template<typename Type>
@@ -82,8 +82,8 @@ void DynamicArray<Type>::Resize(int newSize) {
 		throw std::invalid_argument("Invalid argument");
 	}
 	Type* new_arr = new Type[newSize];
-	memcpy(new_arr, arr, newSize * sizeof(Type));
-	arr = new_arr;
-	size = newSize;
+	memcpy(new_arr, this->arr, newSize * sizeof(Type));
+	this->arr = new_arr;
+	this->size = newSize;
 }
 #endif
