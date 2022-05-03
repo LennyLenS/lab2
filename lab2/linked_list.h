@@ -17,20 +17,21 @@ public:
 	LinkedList(Type* items, int count);
 	LinkedList();
 	LinkedList(LinkedList <Type>& list);
+
 	//getters
-	Type GetFirst();
-	Type GetLast();
-	Type Get(int index);
-	LinkedList<Type>* GetSubList(int startIndex, int endIndex);
-	int GetLength();
+	Type GetFirst() const;
+	Type GetLast() const;
+	Type Get(int index) const;
+	LinkedList<Type>* GetSubList(int startIndex, int endIndex) const;
+	int GetLength() const;
+
 	//setters
 	void Append(Type item);
 	void Prepend(Type item);
 	void InsertAt(Type item, int index);
 	LinkedList<Type>* Concat(LinkedList<Type>* list);
-	//destructor
-	~LinkedList() {};
 };
+
 
 
 //constructs
@@ -61,14 +62,16 @@ LinkedList<Type>::LinkedList(LinkedList <Type>& list) {
 	}
 }
 
+
+
 //getters
 template<typename Type>
-Type LinkedList<Type>::GetFirst() {
+Type LinkedList<Type>::GetFirst() const {
 	return this->start->value;
 }
 
 template<typename Type>
-Type LinkedList<Type>::GetLast() {
+Type LinkedList<Type>::GetLast() const {
 	element* current = this->start;
 	for (int i = 0; i < this->lenght - 1; ++i) {
 		current = current->next;
@@ -77,7 +80,7 @@ Type LinkedList<Type>::GetLast() {
 }
 
 template<typename Type>
-Type LinkedList<Type>::Get(int index) {
+Type LinkedList<Type>::Get(int index) const  {
 	if (index < 0 || index > = this->lenght) {
 		throw std::out_of_range("Out of range");
 	}
@@ -89,7 +92,98 @@ Type LinkedList<Type>::Get(int index) {
 }
 
 template<typename Type>
-int LinkedList<Type>::GetLength() {
+int LinkedList<Type>::GetLength()  const  {
 	return this->lenght;
+}
+
+template<typename Type>
+LinkedList<Type>* LinkedList<Type>::GetSubList(int startIndex, int endIndex) const {
+	LinkedList<Type>* newlist = new LinkedList<Type>();
+	int curpos = 0;
+	element* current = this->start;
+	for (int i = 0; i < this->lenght; ++i) {
+		if (i >= startIndex && i <= endIndex) {
+			newlist->Append(current->value);
+		}
+		current = current->next;
+	}
+	return newlist;
+}
+
+
+//setters
+template<typename Type>
+void LinkedList<Type>::Append(Type item) {
+	if (this->lenght == 0) {
+		this->start->value = item;
+		this->lenght++;
+		return;
+	}
+	element* a = new element;
+	a->value = item;
+	a->next = nullptr;
+
+	element* current = start;
+	for (int i = 0; i < this->lenght - 1; ++i) {
+		current = current->next;
+	}
+	current->next = a;
+	this->lenght++;
+}
+
+template<typename Type>
+void LinkedList<Type>::Prepend(Type item) {
+	if (this->lenght == 0) {
+		this->start->value = item;
+		this->lenght++;
+		return;
+	}
+	element* a = new element;
+	a->value = item;
+	a->next = this->start;
+
+	this->start = a;
+	this->lenght++;
+}
+
+template<typename Type>
+void LinkedList<Type>::InsertAt(Type item, int index) {
+	if (index < 0 || index >= lenght) {
+		trow throw std::out_of_range("Out of range");
+	}
+	if (this->lenght == 0) {
+		this->start->value = item;
+		this->lenght++;
+		return;
+	}
+	element* a = new element;
+	a->value = item;
+
+	element* current = start;
+	for (int i = 0; i < index - 1; ++i) {
+		current = current->next;
+	}
+
+	a->next = current->next;
+	current->next = a;
+	this->lenght++;
+}
+
+template<typename Type>
+LinkedList<Type>* LinkedList<Type>::Concat(LinkedList<Type>* list) {
+	if (this->lenght == 0) {
+		this->start = list;
+		this->lenght = list->GetLength();
+		return this;
+	}
+
+	element* current = start;
+	for (int i = 0; i < this->lenght; ++i) {
+		current = current->next;
+	}
+
+	current->next = list->start;
+	this->lenght = this->lenght + list->GetLength();
+	return this;
 }
 #endif // !LINKED_LIST_H
