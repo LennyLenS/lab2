@@ -30,7 +30,7 @@ public:
 	ArraySequence<Type>* Concat(Sequence<Type>* list) override;
 	
 	//destructs
-	~ArraySequence() {};
+	~ArraySequence() {}
 };
 
 

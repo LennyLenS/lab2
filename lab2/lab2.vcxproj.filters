@@ -35,5 +35,14 @@
     <ClInclude Include="list_sequence.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="vector_array.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="vector_list.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

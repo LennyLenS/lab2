@@ -28,7 +28,7 @@ public:
 	Sequence<Type>* Concat(Sequence<Type>* list) override;
 
 	//destructs
-	~ListSequence() {};
+	~ListSequence() {}
 };
 
 //constructs

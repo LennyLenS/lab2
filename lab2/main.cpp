@@ -1,5 +1,7 @@
 #include <iostream>
 #include <conio.h>
+#include "vector_array.h"
+#include "vector_list.h"
 
 int show_main_menu(int position, int count_list_menu) {
 	system("cls");
@@ -82,10 +84,10 @@ int control_menu(int count_list_menu, int mod, struct matrix** mat, struct matri
 }
 
 
-//menu for choose type of matrix
+//menu for choose type of vector
 int show_preview_menu(int position) {
 	system("cls");
-	char list_menu[2][60] = { {"Integer matrix"}, {"Float matrix"} };
+	char list_menu[2][60] = { {"Integer vector"}, {"Float vector"} };
 	for (int i = 0; i < 2; ++i) {
 		if (i != position) {
 			printf("%s\n", list_menu[i]);
