@@ -1,6 +1,7 @@
 #pragma once
 #ifndef ARRAY_SEQUENCE_H
 #define ARRAY_SEQUENCE_H
+
 #include "dynamic_array.h"
 #include "Sequence.h"
 
