@@ -14,7 +14,7 @@ public:
     ArrayVector(Sequence<Type>* sequence);
     // Destructor
     ~ArrayVector() {
-        delete GetValue;
+        delete this->value;
     }
 };
 

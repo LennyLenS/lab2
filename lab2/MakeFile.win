@@ -1,6 +1,3 @@
-
-CFLAGS = -Wall -g
-
 all: lab2
 
 lab2: main.o

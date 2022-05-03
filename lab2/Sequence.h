@@ -4,12 +4,13 @@
 
 template<typename Type>
 class Sequence {
+public:
 	//getters
-	virtual Type GetFirst();
-	virtual Type GetLast();
-	virtual Type Get(int index);
-	virtual Sequence<Type>* GetSubsequence(int startIndex, int endIndex);
-	virtual int GetLength();
+	virtual Type GetFirst() const;
+	virtual Type GetLast() const;
+	virtual Type Get(int index) const;
+	virtual Sequence<Type>* GetSubsequence(int startIndex, int endIndex) const;
+	virtual int GetLength() const;
 	//setters
 	virtual void Append(Type item);
 	virtual void Prepend(Type item);

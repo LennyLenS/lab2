@@ -12,7 +12,7 @@ public:
 	//constructs
 	ListSequence();
 	ListSequence(Type* items, int count);
-	ListSequence(LinkedList <Type>& list);
+	ListSequence(LinkedList <Type>* list);
 
 	//getters
 	Type GetFirst() const override;
@@ -43,8 +43,8 @@ ListSequence<Type>::ListSequence(Type* items, int count) {
 }
 
 template<typename Type>
-ListSequence<Type>::ListSequence(LinkedList<Type>& linkedList) {
-	this->arr = new LinkedList<Type>(linkedList);
+ListSequence<Type>::ListSequence(LinkedList<Type>* list) {
+	this->arr = new LinkedList<Type>(list);
 }
 
 //getters
@@ -70,7 +70,9 @@ int ListSequence<Type>::GetLength() const {
 
 template<typename Type>
 Sequence<Type>* ListSequence<Type>::GetSubsequence(int startIndex, int endIndex) const {
-	return this->arr->GetSubList(startIndex, endIndex);
+	LinkedList<Type>* cur = this->arr->GetSubList(startIndex, endIndex);
+	ListSequence<Type>* newList = new ListSequence<Type>(cur);
+	return newList;
 }
 
 //setters
@@ -91,7 +93,7 @@ void ListSequence<Type>::InsertAt(Type item, int index) {
 
 template<typename Type>
 Sequence<Type>* ListSequence<Type>::Concat(Sequence<Type>* list) {
-	for (int i = 0; i < list->GetLength; ++i) {
+	for (int i = 0; i < list->GetLength(); ++i) {
 		this->arr->Append(list->Get(i));
 	}
 	return this;

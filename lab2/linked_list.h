@@ -7,7 +7,7 @@ class LinkedList {
 private:
 	typedef struct element {
 		Type value;
-		Type* next;
+		element* next;
 	}element;
 	element* start;
 	int lenght;
@@ -16,7 +16,7 @@ public:
 	//constructs
 	LinkedList(Type* items, int count);
 	LinkedList();
-	LinkedList(LinkedList <Type>& list);
+	LinkedList(LinkedList <Type>* list);
 
 	//getters
 	Type GetFirst() const;
@@ -38,23 +38,20 @@ public:
 template<typename Type>
 LinkedList<Type>::LinkedList() {
 	this->lenght = 0;
-	this->start->value = NULL;
 	this->start->next = nullptr;
 }
 
 template<typename Type>
 LinkedList<Type>::LinkedList(Type* items, int count) {
-	this->lenght = 1;
-	memcpy(this->start->value, items, sizeof(Type));
-	for (int i = 1; i < count; ++i) {
+	this->lenght = 0;
+	for (int i = 0; i < count; ++i) {
 		this->Append(items[i]);
 	}
 }
 
 template<typename Type>
-LinkedList<Type>::LinkedList(LinkedList <Type>& list) {
-	this->lenght = 1;
-	memcpy(this->start->value, list->GetFirst(), sizeof(Type));
+LinkedList<Type>::LinkedList(LinkedList <Type>* list) {
+	this->lenght = 0;
 	element* current = list->start->next;
 	for (int i = 1; i < list->GetLength(); ++i) {
 		this->Append(current->value);
@@ -123,7 +120,7 @@ void LinkedList<Type>::Append(Type item) {
 	a->value = item;
 	a->next = nullptr;
 
-	element* current = start;
+	element* current = this->start;
 	for (int i = 0; i < this->lenght - 1; ++i) {
 		current = current->next;
 	}

@@ -27,19 +27,19 @@ public:
 //getters
 template<typename Type>
 Type Vector<Type>::Get(int index) const {
-	return this->value->Get(index);
+	return value->Get(index);
 }
 
 template<typename Type>
 int Vector<Type>::GetLength() const {
-	return this->size;
+	return size;
 }
 
 //setters
 template<typename Type>
 Vector<Type>* Vector<Type>::Multiplication(Type a) {
 	for (int i = 0; i < size; ++i) {
-		this->value->Set(this->value->Get(i) * a);
+		this->value->InsertAt(this->value->Get(i) * a, i);
 	}
 	return this;
 }
@@ -56,7 +56,7 @@ Type Vector<Type>::Multiplication(Vector<Type>* vec2) {
 template<typename Type>
 Vector<Type>* Vector<Type>::Sum(Vector<Type>* vec2) {
 	for (int i = 0; i < size; ++i) {
-		this->value->Set(this->value->Get(i) + vec2->Get(i));
+		this->value->InsertAt(this->value->Get(i) + vec2->Get(i), i);
 	}
 	return this;
 }

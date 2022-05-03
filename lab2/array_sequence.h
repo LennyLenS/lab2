@@ -91,14 +91,14 @@ Sequence<Type>* ArraySequence<Type>::GetSubsequence(int startIndex, int endIndex
 //setters
 template<typename Type>
 void ArraySequence<Type>::Append(Type item) {
-	this->arr->Resize(this->arr->GetLength() + 1);
-	this->arr->Set(item, this->arr->GetLength() - 1);
+	this->arr->Resize(this->arr->GetSize() + 1);
+	this->arr->Set(item, this->arr->GetSize() - 1);
 }
 
 template<typename Type>
 void ArraySequence<Type>::Prepend(Type item) {
-	this->arr->Resize(this->arr->GetLength() + 1);
-	for (int i = this->arr->GetLength() - 1; i > 0; --i) {
+	this->arr->Resize(this->arr->GetSize() + 1);
+	for (int i = this->arr->GetSize() - 1; i > 0; --i) {
 		this->arr->Set(i, this->arr->Get(i - 1));
 	}
 	this->arr->Set(0, item);
@@ -106,8 +106,8 @@ void ArraySequence<Type>::Prepend(Type item) {
 
 template<typename Type>
 void ArraySequence<Type>::InsertAt(Type item, int index) {
-	this->arr->Resize(this->arr->GetLength() + 1);
-	for (int i = this->arr->GetLength() - 1; i > index; --i) {
+	this->arr->Resize(this->arr->GetSize() + 1);
+	for (int i = this->arr->GetSize() - 1; i > index; --i) {
 		this->arr->Set(i, this->arr->Get(i - 1));
 	}
 	this->arr->Set(index, item);
@@ -115,10 +115,10 @@ void ArraySequence<Type>::InsertAt(Type item, int index) {
 
 template<typename Type>
 ArraySequence<Type>* ArraySequence<Type>::Concat(Sequence<Type>* list) {
-	int size = this->arr->GetLength();
-	this->arr->Resize(this->arr->GetLength() + list->GetLength);
-	for (int i = size; i < this->arr->GetLength(); ++i) {
-		this->arr->Set(i, this->list->Get(i - size));
+	int size = this->arr->GetSize();
+	this->arr->Resize(this->arr->GetSize() + list->GetLength());
+	for (int i = size; i < this->arr->GetSize(); ++i) {
+		this->arr->Set(i, list->Get(i - size));
 	}
 	return this;
 }

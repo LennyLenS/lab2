@@ -1,11 +1,12 @@
 #pragma once
 #ifndef MENU_H
 #define MENU_H
-#include "vector_array.h"
-#include "vector_list.h"
+
 #include <iostream>
 #include <string.h>
 #include <conio.h>
+#include "vector_array.h"
+#include "vector_list.h"
 
 int show_main_menu(int position, int count_list_menu) {
 	system("cls");
@@ -158,6 +159,7 @@ int sum_vectors(int mod, int mod2) {
 			}
 		}
 	}
+	return 0;
 }
 
 int mult_vectorN(int mod, int mod2) {
@@ -266,6 +268,7 @@ int mult_vectorN(int mod, int mod2) {
 			}
 		}
 	}
+	return 0;
 }
 
 int mult_vectorV(int mod, int mod2) {
@@ -404,6 +407,7 @@ int mult_vectorV(int mod, int mod2) {
 			}
 		}
 	}
+	return 0;
 }
 int control_menu(int count_list_menu, int mod, int mod2) {
 	int position = 0, exit = 0;
