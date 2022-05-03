@@ -16,8 +16,8 @@ public:
 
 	//setters
 	Vector<Type>* Multiplication(Type a);
-	Type Multiplication(Vector<Type> vec2);
-	Vector<Type>* Sum(Vector<Type> vec2);
+	Type Multiplication(Vector<Type>* vec2);
+	Vector<Type>* Sum(Vector<Type>* vec2);
 
 	//destructs
 	~Matrix() {}
@@ -44,7 +44,7 @@ Vector<Type>* Vector<Type>::Multiplication(Type a) {
 }
 
 template<typename Type>
-Type Vector<Type>::Multiplication(Vector<Type> vec2) {
+Type Vector<Type>::Multiplication(Vector<Type>* vec2) {
 	Type mult = this->value->Get(0) * vec2->Get(0);
 	for (int i = 1; i < size; ++i) {
 		mult += this->value->Get(i) * vec2->Get(i);
@@ -53,7 +53,7 @@ Type Vector<Type>::Multiplication(Vector<Type> vec2) {
 }
 
 template<typename Type>
-Vector<Type>* Vector<Type>::Sum(Vector<Type> vec2) {
+Vector<Type>* Vector<Type>::Sum(Vector<Type>* vec2) {
 	for (int i = 0; i < size; ++i) {
 		this->value->Set(this->value->Get(i) + vec2->Get(i));
 	}

@@ -146,6 +146,7 @@
     <ClInclude Include="dynamic_array.h" />
     <ClInclude Include="linked_list.h" />
     <ClInclude Include="list_sequence.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="vector.h" />
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="vector_array.h" />

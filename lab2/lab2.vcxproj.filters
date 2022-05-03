@@ -44,5 +44,8 @@
     <ClInclude Include="vector_list.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
