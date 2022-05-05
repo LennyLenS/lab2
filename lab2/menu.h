@@ -59,6 +59,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
+			delete arr1;
+			delete arr2;
 		}
 		if (mod2 == 0) {
 			int* arr = (int*)malloc(size * sizeof(int));
@@ -91,6 +93,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
+			delete arr1;
+			delete arr2;
 		}
 	}
 	else {
@@ -125,6 +129,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
+			delete arr1;
+			delete arr2;
 		}
 		if (mod2 == 0) {
 			float* arr = (float*)malloc(size * sizeof(float));
@@ -157,6 +163,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
+			delete arr1;
+			delete arr2;
 		}
 	}
 	return 0;
@@ -190,6 +198,7 @@ int mult_vectorN(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 		if (mod2 == 0) {
 			int* arr = (int*)malloc(size * sizeof(int));
@@ -216,6 +225,7 @@ int mult_vectorN(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 	}
 	else {
@@ -242,6 +252,7 @@ int mult_vectorN(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 		if (mod2 == 0) {
 			float* arr = (float*)malloc(size * sizeof(float));
@@ -266,6 +277,7 @@ int mult_vectorN(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 	}
 	return 0;
@@ -307,6 +319,7 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 		if (mod2 == 0) {
 			int* arr = (int*)malloc(size * sizeof(int));
@@ -339,6 +352,7 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 	}
 	else {
@@ -373,6 +387,7 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 		if (mod2 == 0) {
 			float* arr = (float*)malloc(size * sizeof(float));
@@ -405,6 +420,7 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
+			delete arr1;
 		}
 	}
 	return 0;

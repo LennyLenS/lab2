@@ -118,4 +118,5 @@ int main() {
 	int count_list_menu = 4;
 	int mod2 = choose_type();
 	control_menu(count_list_menu, mod, mod2);
+	return 0;
 }
