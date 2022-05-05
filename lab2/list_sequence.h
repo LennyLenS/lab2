@@ -1,4 +1,3 @@
-#pragma once
 #ifndef LIST_SEQUENCE_H
 #define LIST_SEQUENCE_H
 #include "linked_list.h"

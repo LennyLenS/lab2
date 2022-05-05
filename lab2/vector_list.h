@@ -1,4 +1,3 @@
-#pragma once
 #ifndef VECTOR_LIST_H
 #define VECTOR_LIST_H
 #include "list_sequence.h"

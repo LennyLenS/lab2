@@ -49,7 +49,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MakeFile.win">
+    <None Include="MakeFile">
       <Filter>Исходные файлы</Filter>
     </None>
   </ItemGroup>
