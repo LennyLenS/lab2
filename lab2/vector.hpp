@@ -38,7 +38,7 @@ int Vector<Type>::GetLength() const {
 template<typename Type>
 Vector<Type>* Vector<Type>::Multiplication(Type a) {
 	for (int i = 0; i < size; ++i) {
-		this->value->InsertAt(this->value->Get(i) * a, i);
+		this->value->Set(this->value->Get(i) * a, i);
 	}
 	return this;
 }

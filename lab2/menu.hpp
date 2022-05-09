@@ -306,6 +306,8 @@ int mult_vectorN(int mod, int mod2) {
 			free(arr);
 		}
 	}
+	printf("\n");
+	system("pause");
 	return 0;
 }
 
@@ -342,11 +344,8 @@ int mult_vectorV(int mod, int mod2) {
 				printf("%d ", arr2->Get(i));
 			}
 
-			arr1->Multiplication(arr2);
-			printf("\nmult:");
-			for (int i = 0; i < size; ++i) {
-				printf("%d ", arr1->Get(i));
-			}
+			int mult = arr1->Multiplication(arr2);
+			printf("\nmult: %d", mult);
 			delete arr1;
 			delete arr2;
 			free(arr);
@@ -469,6 +468,8 @@ int mult_vectorV(int mod, int mod2) {
 			free(arr22);
 		}
 	}
+	printf("\n");
+	system("pause");
 	return 0;
 }
 int control_menu(int count_list_menu, int mod, int mod2) {
