@@ -113,8 +113,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector1[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
 			}
 			ArrayVector<float>* arr1 = new ArrayVector<float>(arr, size);
 
@@ -122,8 +122,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector2[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr22 + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr22 + i, &a, sizeof(float));
 			}
 			ArrayVector<float>* arr2 = new ArrayVector<float>(arr22, size);
 
@@ -149,8 +149,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector1[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
 			}
 			ListVector<float>* arr1 = new ListVector<float>(arr, size);
 
@@ -158,8 +158,8 @@ int sum_vectors(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector2[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr22 + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr22 + i, &a, sizeof(float));
 			}
 			ListVector<float>* arr2 = new ListVector<float>(arr22, size);
 
@@ -256,8 +256,8 @@ int mult_vectorN(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector1[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
 			}
 			ArrayVector<float>* arr1 = new ArrayVector<float>(arr, size);
 
@@ -283,8 +283,8 @@ int mult_vectorN(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector1[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
 			}
 			ListVector<float>* arr1 = new ListVector<float>(arr, size);
 
@@ -312,6 +312,7 @@ int mult_vectorN(int mod, int mod2) {
 }
 
 int mult_vectorV(int mod, int mod2) {
+	system("cls");
 	int size = 0;
 	printf("Enter size of vectors: ");
 	scanf("%d", &size);
@@ -396,8 +397,8 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector1[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
 			}
 			ArrayVector<float>* arr1 = new ArrayVector<float>(arr, size);
 
@@ -405,7 +406,7 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector2[%d]: ", i);
 				int a;
-				scanf("%d", &a);
+				scanf("%f", &a);
 				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ArrayVector<float>* arr2 = new ArrayVector<float>(arr22, size);
@@ -419,11 +420,8 @@ int mult_vectorV(int mod, int mod2) {
 				printf("%f ", arr2->Get(i));
 			}
 
-			arr1->Multiplication(arr2);
-			printf("\nmult:");
-			for (int i = 0; i < size; ++i) {
-				printf("%f ", arr1->Get(i));
-			}
+			float mult = arr1->Multiplication(arr2);
+			printf("\nmult: %f", mult);
 			delete arr1;
 			delete arr2;
 			free(arr);
@@ -434,8 +432,8 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector1[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
 			}
 			ListVector<float>* arr1 = new ListVector<float>(arr, size);
 
@@ -443,8 +441,8 @@ int mult_vectorV(int mod, int mod2) {
 			for (int i = 0; i < size; ++i) {
 				printf("Enter vector2[%d]: ", i);
 				int a;
-				scanf("%d", &a);
-				memcpy(arr22 + i, &a, sizeof(int));
+				scanf("%f", &a);
+				memcpy(arr22 + i, &a, sizeof(float));
 			}
 			ListVector<float>* arr2 = new ListVector<float>(arr22, size);
 
@@ -457,11 +455,8 @@ int mult_vectorV(int mod, int mod2) {
 				printf("%f ", arr2->Get(i));
 			}
 
-			arr1->Multiplication(arr2);
-			printf("\nmult:");
-			for (int i = 0; i < size; ++i) {
-				printf("%f ", arr1->Get(i));
-			}
+			float mult = arr1->Multiplication(arr2);
+			printf("\nmult: %f", mult);
 			delete arr1;
 			delete arr2;
 			free(arr);
@@ -472,6 +467,7 @@ int mult_vectorV(int mod, int mod2) {
 	system("pause");
 	return 0;
 }
+
 int control_menu(int count_list_menu, int mod, int mod2) {
 	int position = 0, exit = 0;
 	show_main_menu(position, count_list_menu);
