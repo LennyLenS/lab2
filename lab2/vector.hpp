@@ -1,7 +1,7 @@
-#ifndef VECTOR_H
-#define VECTOR_H
-#include "array_sequence.h"
-#include "list_sequence.h"
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
+#include "array_sequence.hpp"
+#include "list_sequence.hpp"
 
 template<typename Type>
 class Vector {
@@ -20,18 +20,18 @@ public:
 	Vector<Type>* Sum(Vector<Type>* vec2);
 
 	//destructs
-	virtual ~Vector() = 0;
+	virtual ~Vector() {};
 };
 
 //getters
 template<typename Type>
 Type Vector<Type>::Get(int index) const {
-	return value->Get(index);
+	return this->value->Get(index);
 }
 
 template<typename Type>
 int Vector<Type>::GetLength() const {
-	return size;
+	return this->size;
 }
 
 //setters
@@ -54,8 +54,8 @@ Type Vector<Type>::Multiplication(Vector<Type>* vec2) {
 
 template<typename Type>
 Vector<Type>* Vector<Type>::Sum(Vector<Type>* vec2) {
-	for (int i = 0; i < size; ++i) {
-		this->value->InsertAt(this->value->Get(i) + vec2->Get(i), i);
+	for (int i = 0; i < this->size; ++i) {
+		this->value->Set(this->value->Get(i) + vec2->Get(i), i);
 	}
 	return this;
 }

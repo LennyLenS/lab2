@@ -1,22 +1,10 @@
 CC = g++
+CFLAGS = -Wall -g
 
-CFLAGS = -c -Wall
+all: lab2
 
-LDFLAGS = 
+lab2: main.o
+		$(CC) $(CFLAGS) main.o -o lab2
 
-SRCS = main.cpp
-
-OBJS = $(SRCS:.c=.o)
-
-EXE = prog
-
-all: $(SRCS) $(EXE)
-
-$(EXE): $(OBJS)
-	$(CC) $(LDFLAGS) $(OBJS) -o $@
-
-.c:.o
-	$(CC) $(CFLAGS) $< -o $@
-
-clean:
-	rm -rf $(EXE)
+main.o: main.cpp array_sequence.hpp dynamic_array.hpp linked_list.hpp menu.hpp Sequence.hpp vector.hpp vector_array.hpp vector_list.hpp
+		$(CC) -c main.cpp -o main.o

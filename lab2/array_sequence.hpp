@@ -1,8 +1,8 @@
-#ifndef ARRAY_SEQUENCE_H
-#define ARRAY_SEQUENCE_H
+#ifndef ARRAY_SEQUENCE_HPP
+#define ARRAY_SEQUENCE_HPP
 
-#include "dynamic_array.h"
-#include "Sequence.h"
+#include "dynamic_array.hpp"
+#include "Sequence.hpp"
 
 template<typename Type>
 class ArraySequence : public Sequence<Type> {
@@ -26,6 +26,7 @@ public:
 	void Append(Type item) override;
 	void Prepend(Type item) override;
 	void InsertAt(Type item, int index) override;
+	void Set(Type item, int index) override;
 	ArraySequence<Type>* Concat(Sequence<Type>* list) override;
 	
 	//destructs
@@ -109,6 +110,11 @@ void ArraySequence<Type>::InsertAt(Type item, int index) {
 	for (int i = this->arr->GetSize() - 1; i > index; --i) {
 		this->arr->Set(i, this->arr->Get(i - 1));
 	}
+	this->arr->Set(index, item);
+}
+
+template<typename Type>
+void ArraySequence<Type>::Set(Type item, int index) {
 	this->arr->Set(index, item);
 }
 

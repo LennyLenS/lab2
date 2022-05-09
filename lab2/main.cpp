@@ -1,7 +1,7 @@
 #include <iostream>
 #include <conio.h>
-#include "menu.h"
-
+#include "menu.hpp"
+#include "vector.hpp"
 //menu for choose type of vector
 int show_preview_menu(int position) {
 	system("cls");

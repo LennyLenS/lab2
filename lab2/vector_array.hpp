@@ -1,7 +1,7 @@
-#ifndef VECTOR_ARRAY_H
-#define VECTOR_ARRAY_H
-#include "array_sequence.h"
-#include "vector.h"
+#ifndef VECTOR_ARRAY_HPP
+#define VECTOR_ARRAY_HPP
+#include "array_sequence.hpp"
+#include "vector.hpp"
 
 template<typename Type>
 class ArrayVector : public Vector<Type> {

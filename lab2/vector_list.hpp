@@ -1,7 +1,7 @@
-#ifndef VECTOR_LIST_H
-#define VECTOR_LIST_H
-#include "list_sequence.h"
-#include "vector.h"
+#ifndef VECTOR_LIST_HPP
+#define VECTOR_LIST_HPP
+#include "list_sequence.hpp"
+#include "vector.hpp"
 
 template<typename Type>
 class ListVector : public Vector<Type> {

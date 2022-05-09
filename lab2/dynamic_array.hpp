@@ -1,5 +1,6 @@
-#ifndef DYNAMIC_ARRAY_H
-#define DYNAMIC_ARRAY_H
+#ifndef DYNAMIC_ARRAY_HPP
+#define DYNAMIC_ARRAY_HPP
+#include <stdexcept>
 
 template<typename Type>
 class DynamicArray {
@@ -55,7 +56,7 @@ DynamicArray<Type>::DynamicArray(DynamicArray<Type>& dynamicArray) {
 template<typename Type>
 Type DynamicArray<Type>::Get(int index) const{
 	if (index < 0 || index >= size) {
-		throw std::out_of_range("Out of range");
+		//throw out_of_range("Out of range");
 	}
 	return this->arr[index];
 }
@@ -69,15 +70,15 @@ int DynamicArray<Type>::GetSize() const {
 template<typename Type>
 void DynamicArray<Type>::Set(int index, Type value) {
 	if (index < 0 || index >= size) {
-		throw std::out_of_range("Out of range");
+		//throw out_of_range("Out of range");
 	}
-	memcpy(this->arr + index * sizeof(Type), &value, sizeof(Type));
+	memcpy(this->arr + index, &value, sizeof(Type));
 }
 
 template<typename Type>
 void DynamicArray<Type>::Resize(int newSize) {
 	if (newSize < 0) {
-		throw std::invalid_argument("Invalid argument");
+		//throw invalid_argument("Invalid argument");
 	}
 	Type* new_arr = new Type[newSize];
 	memcpy(new_arr, this->arr, newSize * sizeof(Type));

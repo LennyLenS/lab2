@@ -1,7 +1,8 @@
-#ifndef LIST_SEQUENCE_H
-#define LIST_SEQUENCE_H
-#include "linked_list.h"
-#include "Sequence.h"
+#ifndef LIST_SEQUENCE_HPP
+#define LIST_SEQUENCE_HPP
+#include <stdexcept>
+#include "linked_list.hpp"
+#include "Sequence.hpp"
 
 template<typename Type>
 class ListSequence : public Sequence<Type> {
@@ -24,6 +25,7 @@ public:
 	void Append(Type item) override;
 	void Prepend(Type item) override;
 	void InsertAt(Type item, int index) override;
+	void Set(Type item, int index) override;
 	Sequence<Type>* Concat(Sequence<Type>* list) override;
 
 	//destructs
@@ -88,6 +90,11 @@ void ListSequence<Type>::Prepend(Type item) {
 template<typename Type>
 void ListSequence<Type>::InsertAt(Type item, int index) {
 	this->arr->InsertAt(item, index);
+}
+
+template<typename Type>
+void ListSequence<Type>::Set(Type item, int index) {
+	this->arr->Set(item, index);
 }
 
 template<typename Type>

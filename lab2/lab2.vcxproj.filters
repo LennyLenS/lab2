@@ -20,32 +20,32 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sequence.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="array_sequence.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="dynamic_array.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="dynamic_array.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="linked_list.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="linked_list.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="array_sequence.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="list_sequence.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="list_sequence.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="menu.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="vector.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="Sequence.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="vector_array.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="vector.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="vector_list.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="vector_array.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="vector_list.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

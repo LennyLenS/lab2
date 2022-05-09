@@ -142,15 +142,15 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="array_sequence.h" />
-    <ClInclude Include="dynamic_array.h" />
-    <ClInclude Include="linked_list.h" />
-    <ClInclude Include="list_sequence.h" />
-    <ClInclude Include="menu.h" />
-    <ClInclude Include="vector.h" />
-    <ClInclude Include="Sequence.h" />
-    <ClInclude Include="vector_array.h" />
-    <ClInclude Include="vector_list.h" />
+    <ClInclude Include="array_sequence.hpp" />
+    <ClInclude Include="dynamic_array.hpp" />
+    <ClInclude Include="linked_list.hpp" />
+    <ClInclude Include="list_sequence.hpp" />
+    <ClInclude Include="menu.hpp" />
+    <ClInclude Include="vector.hpp" />
+    <ClInclude Include="Sequence.hpp" />
+    <ClInclude Include="vector_array.hpp" />
+    <ClInclude Include="vector_list.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MakeFile" />

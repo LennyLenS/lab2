@@ -1,11 +1,11 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef MENU_HPP
+#define MENU_HPP
 
 #include <iostream>
 #include <string.h>
 #include <conio.h>
-#include "vector_array.h"
-#include "vector_list.h"
+#include "vector_array.hpp"
+#include "vector_list.hpp"
 
 int show_main_menu(int position, int count_list_menu) {
 	system("cls");
@@ -23,6 +23,7 @@ int show_main_menu(int position, int count_list_menu) {
 }
 
 int sum_vectors(int mod, int mod2) {
+	system("cls");
 	int size = 0;
 	printf("Enter size of vectors: ");
 	scanf("%d", &size);
@@ -30,142 +31,160 @@ int sum_vectors(int mod, int mod2) {
 		if (mod2 == 0) {
 			int* arr = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ArrayVector<int>* arr1 = new ArrayVector<int>(arr, size);
 
 			int* arr22 = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector2[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr22 + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ArrayVector<int>* arr2 = new ArrayVector<int>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr2->Get(i));
 			}
 
 			arr1->Sum(arr2);
-			printf("Sum:\n");
+			printf("\nSum:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
+
+
 			delete arr1;
 			delete arr2;
+			free(arr);
+			free(arr22);
 		}
-		if (mod2 == 0) {
+		if (mod2 == 1) {
 			int* arr = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ListVector<int>* arr1 = new ListVector<int>(arr, size);
 
 			int* arr22 = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector2[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr22 + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ListVector<int>* arr2 = new ListVector<int>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr2->Get(i));
 			}
 
 			arr1->Sum(arr2);
-			printf("Sum:\n");
+			printf("\nSum:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
 			delete arr1;
 			delete arr2;
+			free(arr);
+			free(arr22);
 		}
 	}
 	else {
 		if (mod2 == 0) {
 			float* arr = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ArrayVector<float>* arr1 = new ArrayVector<float>(arr, size);
 
 			float* arr22 = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr22 + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector2[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ArrayVector<float>* arr2 = new ArrayVector<float>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr2->Get(i));
 			}
 
 			arr1->Sum(arr2);
-			printf("Sum:\n");
+			printf("\nSum:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 			delete arr1;
 			delete arr2;
 		}
-		if (mod2 == 0) {
+		if (mod2 == 1) {
 			float* arr = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ListVector<float>* arr1 = new ListVector<float>(arr, size);
 
 			float* arr22 = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr22 + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector2[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ListVector<float>* arr2 = new ListVector<float>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr2->Get(i));
 			}
 
 			arr1->Sum(arr2);
-			printf("Sum:\n");
+			printf("\nSum:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 			delete arr1;
 			delete arr2;
+			free(arr);
+			free(arr22);
 		}
 	}
+	printf("\n");
+	system("pause");
 	return 0;
 }
 
@@ -177,9 +196,10 @@ int mult_vectorN(int mod, int mod2) {
 		if (mod2 == 0) {
 			int* arr = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ArrayVector<int>* arr1 = new ArrayVector<int>(arr, size);
 			
@@ -187,24 +207,26 @@ int mult_vectorN(int mod, int mod2) {
 			printf("Enter alfa: ");
 			scanf("%d", &a);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
 
 			arr1->Multiplication(a);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
 			delete arr1;
+			free(arr);
 		}
-		if (mod2 == 0) {
+		if (mod2 == 1) {
 			int* arr = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ListVector<int>* arr1 = new ListVector<int>(arr, size);
 
@@ -213,27 +235,29 @@ int mult_vectorN(int mod, int mod2) {
 			printf("Enter alfa: ");
 			scanf("%d", &a);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
 
 
 			arr1->Multiplication(a);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
 			delete arr1;
+			free(arr);
 		}
 	}
 	else {
 		if (mod2 == 0) {
 			float* arr = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ArrayVector<float>* arr1 = new ArrayVector<float>(arr, size);
 
@@ -241,24 +265,26 @@ int mult_vectorN(int mod, int mod2) {
 			printf("Enter alfa: ");
 			scanf("%f", &a);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 
 			arr1->Multiplication(a);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 			delete arr1;
+			free(arr);
 		}
-		if (mod2 == 0) {
+		if (mod2 == 1) {
 			float* arr = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ListVector<float>* arr1 = new ListVector<float>(arr, size);
 
@@ -266,17 +292,18 @@ int mult_vectorN(int mod, int mod2) {
 			printf("Enter alfa: ");
 			scanf("%f", &a);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 
 			arr1->Multiplication(a);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 			delete arr1;
+			free(arr);
 		}
 	}
 	return 0;
@@ -290,136 +317,156 @@ int mult_vectorV(int mod, int mod2) {
 		if (mod2 == 0) {
 			int* arr = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ArrayVector<int>* arr1 = new ArrayVector<int>(arr, size);
 
 			int* arr22 = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector2[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr22 + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ArrayVector<int>* arr2 = new ArrayVector<int>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr2->Get(i));
 			}
 
 			arr1->Multiplication(arr2);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
 			delete arr1;
+			delete arr2;
+			free(arr);
+			free(arr22);
 		}
-		if (mod2 == 0) {
+		if (mod2 == 1) {
 			int* arr = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ListVector<int>* arr1 = new ListVector<int>(arr, size);
 
 			int* arr22 = (int*)malloc(size * sizeof(int));
 			for (int i = 0; i < size; ++i) {
+				printf("Enter vector2[%d]: ", i);
 				int a;
 				scanf("%d", &a);
-				memcpy(arr22 + i * sizeof(int), &a, sizeof(int));
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ListVector<int>* arr2 = new ListVector<int>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr2->Get(i));
 			}
 
 			arr1->Multiplication(arr2);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%d ", arr1->Get(i));
 			}
 			delete arr1;
+			delete arr2;
+			free(arr);
+			free(arr22);
 		}
 	}
 	else {
 		if (mod2 == 0) {
 			float* arr = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ArrayVector<float>* arr1 = new ArrayVector<float>(arr, size);
 
 			float* arr22 = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr22 + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector2[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ArrayVector<float>* arr2 = new ArrayVector<float>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr2->Get(i));
 			}
 
 			arr1->Multiplication(arr2);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 			delete arr1;
+			delete arr2;
+			free(arr);
+			free(arr22);
 		}
-		if (mod2 == 0) {
+		if (mod2 == 1) {
 			float* arr = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
 			}
 			ListVector<float>* arr1 = new ListVector<float>(arr, size);
 
 			float* arr22 = (float*)malloc(size * sizeof(float));
 			for (int i = 0; i < size; ++i) {
-				float a;
-				scanf("%f", &a);
-				memcpy(arr22 + i * sizeof(float), &a, sizeof(float));
+				printf("Enter vector2[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr22 + i, &a, sizeof(int));
 			}
 			ListVector<float>* arr2 = new ListVector<float>(arr22, size);
 
-			printf("Vector 1:\n");
+			printf("Vector 1:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
-			printf("Vector 2:\n");
+			printf("\nVector 2:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr2->Get(i));
 			}
 
 			arr1->Multiplication(arr2);
-			printf("mult:\n");
+			printf("\nmult:");
 			for (int i = 0; i < size; ++i) {
 				printf("%f ", arr1->Get(i));
 			}
 			delete arr1;
+			delete arr2;
+			free(arr);
+			free(arr22);
 		}
 	}
 	return 0;
