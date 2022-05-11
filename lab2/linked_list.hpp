@@ -1,5 +1,6 @@
 #ifndef LINKED_LIST_HPP
 #define LINKED_LIST_HPP
+#include <iostream>
 
 template<typename Type>
 class LinkedList {
@@ -46,6 +47,7 @@ template<typename Type>
 LinkedList<Type>::LinkedList(Type* items, int count) {
 	this->lenght = 0;
 	for (int i = 0; i < count; ++i) {
+		//system("pause");
 		this->Append(items[i]);
 	}
 }
@@ -113,14 +115,15 @@ LinkedList<Type>* LinkedList<Type>::GetSubList(int startIndex, int endIndex) con
 template<typename Type>
 void LinkedList<Type>::Append(Type item) {
 	if (this->lenght == 0) {
+		this->start = new element;
 		this->start->value = item;
 		this->lenght++;
+		//system("pause");
 		return;
 	}
 	element* a = new element;
 	a->value = item;
 	a->next = nullptr;
-
 	element* current = this->start;
 	for (int i = 0; i < this->lenght - 1; ++i) {
 		current = current->next;

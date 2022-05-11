@@ -183,12 +183,14 @@ int sum_vectors(int mod, int mod2) {
 			free(arr22);
 		}
 	}
+
 	printf("\n");
 	system("pause");
 	return 0;
 }
 
 int mult_vectorN(int mod, int mod2) {
+	system("cls");
 	int size = 0;
 	printf("Enter size of vector: ");
 	scanf("%d", &size);
@@ -380,11 +382,8 @@ int mult_vectorV(int mod, int mod2) {
 				printf("%d ", arr2->Get(i));
 			}
 
-			arr1->Multiplication(arr2);
-			printf("\nmult:");
-			for (int i = 0; i < size; ++i) {
-				printf("%d ", arr1->Get(i));
-			}
+			int mult = arr1->Multiplication(arr2);
+			printf("\nmult: %d", mult);
 			delete arr1;
 			delete arr2;
 			free(arr);
