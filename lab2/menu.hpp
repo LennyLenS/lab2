@@ -9,8 +9,8 @@
 
 int show_main_menu(int position, int count_list_menu) {
 	system("cls");
-	char list_menu[4][60] = { {"Sum Vector"}, {"Mult vector on number"}, {"Mult vector on vector"},
-		{"Close app"} };
+	char list_menu[5][60] = { {"Sum Vector"}, {"Mult vector on number"}, {"Mult vector on vector"},
+		{"Find norm"},  {"Close app"} };
 	for (int i = 0; i < count_list_menu; ++i) {
 		if (i != position) {
 			printf("%s\n", list_menu[i]);
@@ -467,8 +467,107 @@ int mult_vectorV(int mod, int mod2) {
 	return 0;
 }
 
+int find_norm(int mod, int mod2) {
+	system("cls");
+	int size = 0;
+	printf("Enter size of vector: ");
+	scanf("%d", &size);
+	if (mod == 0) {
+		if (mod2 == 0) {
+			int* arr = (int*)malloc(size * sizeof(int));
+			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
+			}
+			ArrayVector<int>* arr1 = new ArrayVector<int>(arr, size);
+
+			printf("Vector 1:");
+			for (int i = 0; i < size; ++i) {
+				printf("%d ", arr1->Get(i));
+			}
+
+			float norm = arr1->Norm();
+			printf("\norm = %f", norm);
+			delete arr1;
+			free(arr);
+		}
+		if (mod2 == 1) {
+			int* arr = (int*)malloc(size * sizeof(int));
+			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%d", &a);
+				memcpy(arr + i, &a, sizeof(int));
+			}
+			ListVector<int>* arr1 = new ListVector<int>(arr, size);
+
+
+			printf("Vector 1:");
+			for (int i = 0; i < size; ++i) {
+				printf("%d ", arr1->Get(i));
+			}
+
+
+			float norm = arr1->Norm();
+			printf("\norm = %f", norm);
+
+			delete arr1;
+			free(arr);
+		}
+	}
+	else {
+		if (mod2 == 0) {
+			float* arr = (float*)malloc(size * sizeof(float));
+			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
+			}
+			ArrayVector<float>* arr1 = new ArrayVector<float>(arr, size);
+
+			printf("Vector 1:");
+			for (int i = 0; i < size; ++i) {
+				printf("%f ", arr1->Get(i));
+			}
+
+			float norm = arr1->Norm();
+			printf("\norm = %f", norm);
+			delete arr1;
+			free(arr);
+		}
+		if (mod2 == 1) {
+			float* arr = (float*)malloc(size * sizeof(float));
+			for (int i = 0; i < size; ++i) {
+				printf("Enter vector1[%d]: ", i);
+				int a;
+				scanf("%f", &a);
+				memcpy(arr + i, &a, sizeof(float));
+			}
+			ListVector<float>* arr1 = new ListVector<float>(arr, size);
+
+
+			printf("Vector 1:");
+			for (int i = 0; i < size; ++i) {
+				printf("%f ", arr1->Get(i));
+			}
+
+			float norm = arr1->Norm();
+			printf("\norm = %f", norm);
+			delete arr1;
+			free(arr);
+		}
+	}
+	printf("\n");
+	system("pause");
+	return 0;
+}
+
 int control_menu(int count_list_menu, int mod, int mod2) {
 	int position = 0, exit = 0;
+	count_list_menu = 5;
 	show_main_menu(position, count_list_menu);
 	do {
 		int key = 0;
@@ -502,9 +601,11 @@ int control_menu(int count_list_menu, int mod, int mod2) {
 			}
 			if (position == 2) {
 				mult_vectorV(mod, mod2);
-				printf("2!\n");
 			}
 			if (position == 3) {
+				find_norm(mod, mod2);
+			}
+			if (position == 4) {
 				exit = 1;
 				system("cls");
 				printf("Good bye!\n");

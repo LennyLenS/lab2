@@ -1,5 +1,6 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
+#include <cmath>
 #include "array_sequence.hpp"
 #include "list_sequence.hpp"
 
@@ -18,7 +19,7 @@ public:
 	Vector<Type>* Multiplication(Type a);
 	Type Multiplication(Vector<Type>* vec2);
 	Vector<Type>* Sum(Vector<Type>* vec2);
-
+	float Norm();
 	//destructs
 	virtual ~Vector() {};
 };
@@ -58,5 +59,14 @@ Vector<Type>* Vector<Type>::Sum(Vector<Type>* vec2) {
 		this->value->Set(this->value->Get(i) + vec2->Get(i), i);
 	}
 	return this;
+}
+
+template<typename Type>
+float Vector<Type>::Norm() {
+	Type norm = this->value->Get(0) * this->value->Get(0);
+	for (int i = 1; i < size; ++i) {
+		norm += this->value->Get(i) * this->value->Get(i);
+	}
+	return sqrt(norm);
 }
 #endif
