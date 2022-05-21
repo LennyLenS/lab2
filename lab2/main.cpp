@@ -1,11 +1,11 @@
 #include <iostream>
 #include <conio.h>
-#include "menu.hpp"
-#include "vector.hpp"
+#include "matrix_menu.hpp"
+#include "matrix.hpp"
 //menu for choose type of vector
 int show_preview_menu(int position) {
 	system("cls");
-	char list_menu[2][60] = { {"Integer vector"}, {"Float vector"} };
+	char list_menu[2][60] = { {"Integer matrix"}, {"Float matrix"} };
 	for (int i = 0; i < 2; ++i) {
 		if (i != position) {
 			printf("%s\n", list_menu[i]);
@@ -61,7 +61,7 @@ int control_preview() {
 //menu for choose type of realization
 int show_choose_type(int position) {
 	system("cls");
-	char list_menu[2][60] = { {"Array vector"}, {"List vector"} };
+	char list_menu[2][60] = { {"Array matrix"}, {"List matrix"} };
 	for (int i = 0; i < 2; ++i) {
 		if (i != position) {
 			printf("%s\n", list_menu[i]);

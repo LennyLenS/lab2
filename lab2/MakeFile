@@ -4,7 +4,7 @@ CFLAGS = -Wall -g
 all: lab2
 
 lab2: main.o
-		$(CC) $(CFLAGS) main.o -o lab_vector
+		$(CC) $(CFLAGS) main.o -o lab_matrix
 
-main.o: main.cpp array_sequence.hpp dynamic_array.hpp linked_list.hpp menu.hpp Sequence.hpp vector.hpp vector_array.hpp vector_list.hpp
+main.o: main.cpp array_sequence.hpp dynamic_array.hpp linked_list.hpp Sequence.hpp matrix.hpp matrix_array.hpp matrix_list.hpp matrix_menu.hpp
 		$(CC) -c main.cpp -o main.o

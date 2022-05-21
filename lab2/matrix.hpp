@@ -6,10 +6,10 @@
 template<typename Type>
 class Matrix {
 protected:
-	Sequence<Sequence<Type> >* value;
-	virtual Sequence<Sequence<Type> >* GetValue() const = 0;
+	Sequence<Type>* value;
+	virtual Sequence<Type>* GetValue() const = 0;
 	int row;
-	int column;
+	int column; 
 public:
 	//getters
 	Type Get(int index1, int index2) const;
@@ -27,7 +27,8 @@ public:
 //getters
 template<typename Type>
 Type Matrix<Type>::Get(int index1, int index2) const {
-	return this->value->Get(index1).Get(index2);
+	printf("%d", this->value[index1].Get(index2));
+	return this->value[index1].Get(index2);
 }
 
 template<typename Type>
@@ -45,8 +46,8 @@ template<typename Type>
 Matrix<Type>* Matrix<Type>::Sum(Matrix<Type>* mat2) {
 	for (int i = 0; i < this->row; ++i) {
 		for (int j = 0; j < this->column; ++j) {
-			Type a = this->value->Get(i).Get(j) + mat2->GetValue()->Get(i).Get(j);
-			this->value->Set(this->value->Get(i).Set(a, j), i);
+			Type a = this->value[i].Get(j) + (mat2->GetValue())[i].Get(j);
+			this->value[i].Set(a, j);
 		}
 	}
 	return this;
@@ -56,8 +57,8 @@ template<typename Type>
 Matrix<Type>* Matrix<Type>::Mult(Type a) {
 	for (int i = 0; i < this->row; ++i) {
 		for (int j = 0; j < this->column; ++j) {
-			Type b = this->value->Get(i).Get(j) * a;
-			this->value->Set(this->value->Get(i).Set(a, j), i);
+			Type b = this->value[i].Get(j) * a;
+			this->value[i].Set(b, j);
 		}
 	}
 	return this;

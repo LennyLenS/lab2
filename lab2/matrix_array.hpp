@@ -1,44 +1,88 @@
 #ifndef MATRIX_ARRAY_HPP
 #define MATRIX_ARRAY_HPP
 #include "array_sequence.hpp"
-#include "matrix.hpp"
+
 
 template<typename Type>
-class ArrayMatrix : public Matrix<Type> {
+class ArrayMatrix {
 protected:
-    Sequence<Type>* GetValue() const override;
+    ArraySequence<Type>* value;
+    int row;
+    int column;
+    ArraySequence<Type>* GetValue() const;
 public:
     //constructs
-    ArrayMatrix(Type* array, int count);
-    ArrayMatrix(Sequence<Type>* sequence);
+    ArrayMatrix(Type** array, int row, int column);
 
     //getters
-    Type Get(int index, int index2) {
-        return this->val->Get(index1).Get(index2);
-    }
+    Type Get(int index1, int index2) const;
+    int GetRow() const;
+    int GetColumn() const;
+
+    //setters
+    ArrayMatrix<Type>* Sum(ArrayMatrix<Type>* mat2);
+    ArrayMatrix<Type>* Mult(Type a);
     // Destructor
-    ~ArrayMatrix() {
-        delete this->value;
-    }
+    ~ArrayMatrix() {}
 };
 
-/*
+
 template <typename Type>
-Sequence<Type>* ArrayVector<Type>::GetValue() const {
+ArraySequence<Type>* ArrayMatrix<Type>::GetValue() const {
     return this->value;
 }
 
+
 template<typename Type>
-ArrayVector<Type>::ArrayVector(Type* array, int count) {
-    ArraySequence<Type>* arr = new ArraySequence<Type>(array, count);
+ArrayMatrix<Type>::ArrayMatrix(Type** array, int row, int column) {
+    ArraySequence<Type>* arr = new ArraySequence<Type>[row];
+    for (int i = 0; i < row; ++i) {
+        ArraySequence<Type> arr1 = ArraySequence<Type>(array[i], column);
+        arr[i] = arr1;
+    }
     this->value = arr;
-    this->size = count;
+    this->row = row;
+    this->column = column;
+}
+
+
+//getters
+template<typename Type>
+Type ArrayMatrix<Type>::Get(int index1, int index2) const {
+    return this->value[index1].Get(index2);
 }
 
 template<typename Type>
-ArrayVector<Type>::ArrayVector(Sequence<Type>* sequence) {
-    this->value = new ArraySequence<Type>(sequence);
-    this->size = sequence->GetLength;
+int ArrayMatrix<Type>::GetRow() const {
+    return this->row;
 }
-*/
+
+template<typename Type>
+int ArrayMatrix<Type>::GetColumn() const {
+    return this->column;
+}
+
+
+//setters
+template<typename Type>
+ArrayMatrix<Type>* ArrayMatrix<Type>::Sum(ArrayMatrix<Type>* mat2) {
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            Type a = this->value[i].Get(j) + (mat2->GetValue())[i].Get(j);
+            this->value[i].Set(a, j);
+        }
+    }
+    return this;
+}
+
+template<typename Type>
+ArrayMatrix<Type>* ArrayMatrix<Type>::Mult(Type a) {
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            Type b = this->value[i].Get(j) * a;
+            this->value[i].Set(b, j);
+        }
+    }
+    return this;
+}
 #endif

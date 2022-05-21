@@ -149,6 +149,7 @@
     <ClInclude Include="matrix.hpp" />
     <ClInclude Include="matrix_array.hpp" />
     <ClInclude Include="matrix_list.hpp" />
+    <ClInclude Include="matrix_menu.hpp" />
     <ClInclude Include="menu.hpp" />
     <ClInclude Include="vector.hpp" />
     <ClInclude Include="Sequence.hpp" />
