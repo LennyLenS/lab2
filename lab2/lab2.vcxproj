@@ -154,6 +154,9 @@
     <ClInclude Include="sq_matrix_array.hpp" />
     <ClInclude Include="sq_matrix_list.hpp" />
     <ClInclude Include="sq_matrix_menu.hpp" />
+    <ClInclude Include="tr_matrix_array.hpp" />
+    <ClInclude Include="tr_matrix_list.hpp" />
+    <ClInclude Include="tr_matrix_menu.hpp" />
     <ClInclude Include="vector.hpp" />
     <ClInclude Include="Sequence.hpp" />
     <ClInclude Include="vector_array.hpp" />
