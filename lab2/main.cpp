@@ -1,7 +1,6 @@
 #include <iostream>
 #include <conio.h>
 #include "matrix_menu.hpp"
-#include "matrix.hpp"
 //menu for choose type of vector
 int show_preview_menu(int position) {
 	system("cls");

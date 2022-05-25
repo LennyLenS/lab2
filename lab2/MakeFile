@@ -6,5 +6,5 @@ all: lab2
 lab2: main.o
 		$(CC) $(CFLAGS) main.o -o lab_matrix
 
-main.o: main.cpp array_sequence.hpp dynamic_array.hpp linked_list.hpp Sequence.hpp matrix.hpp matrix_array.hpp matrix_list.hpp matrix_menu.hpp
+main.o: main.cpp array_sequence.hpp dynamic_array.hpp linked_list.hpp Sequence.hpp matrix_array.hpp matrix_list.hpp matrix_menu.hpp
 		$(CC) -c main.cpp -o main.o

@@ -1,21 +1,20 @@
-#ifndef MATRIX_ARRAY_HPP
-#define MATRIX_ARRAY_HPP
+#ifndef SQ_MATRIX_LIST_HPP
+#define SQ_MATRIX_LIST_HPP
 #include <cmath>
 #include <iostream>
-#include "array_sequence.hpp"
+#include "list_sequence.hpp"
 
 
 template<typename Type>
-class ArrayMatrix {
+class ListMatrix {
 protected:
-    ArraySequence<Type>* value;
+    ListSequence<Type>* value;
     int row;
-    int column;
-    ArraySequence<Type>* GetValue() const;
+    ListSequence<Type>* GetValue() const;
 public:
-    friend std::ostream& operator << (std::ostream& os, const ArrayMatrix<Type>* mat) {
+    friend std::ostream& operator << (std::ostream& os, const ListMatrix<Type>* mat) {
         for (int i = 0; i < mat->GetRow(); ++i) {
-            for (int j = 0; j < mat->GetColumn(); ++j) {
+            for (int j = 0; j < mat->GetRow(); ++j) {
                 os << mat->Get(i, j) << " ";
             }
             os << std::endl;
@@ -24,64 +23,57 @@ public:
     }
 
     //constructs
-    ArrayMatrix(Type** array, int row, int column);
+    ListMatrix(Type** array, int row);
 
     //getters
     Type Get(int index1, int index2) const;
     int GetRow() const;
-    int GetColumn() const;
     float GetNorm() const;
 
     //setters
-    ArrayMatrix<Type>* Sum(ArrayMatrix<Type>* mat2);
-    ArrayMatrix<Type>* Mult(Type a);
-    ArrayMatrix<Type>* SumRow(int ind1, int ind2);
-    ArrayMatrix<Type>* SumColumn(int ind1, int ind2);
+    ListMatrix<Type>* Sum(ListMatrix<Type>* mat2);
+    ListMatrix<Type>* Mult(Type a);
+    ListMatrix<Type>* SumRow(int ind1, int ind2);
+    ListMatrix<Type>* SumColumn(int ind1, int ind2);
     // Destructor
-    ~ArrayMatrix() {}
+    ~ListMatrix() {}
 };
 
 
 template <typename Type>
-ArraySequence<Type>* ArrayMatrix<Type>::GetValue() const {
+ListSequence<Type>* ListMatrix<Type>::GetValue() const {
     return this->value;
 }
 
 
 template<typename Type>
-ArrayMatrix<Type>::ArrayMatrix(Type** array, int row, int column) {
-    ArraySequence<Type>* arr = new ArraySequence<Type>[row];
+ListMatrix<Type>::ListMatrix(Type** array, int row) {
+    ListSequence<Type>* arr = new ListSequence<Type>[row];
     for (int i = 0; i < row; ++i) {
-        ArraySequence<Type> arr1 = ArraySequence<Type>(array[i], column);
+        ListSequence<Type> arr1 = ListSequence<Type>(array[i], row);
         arr[i] = arr1;
     }
     this->value = arr;
     this->row = row;
-    this->column = column;
 }
 
 
 //getters
 template<typename Type>
-Type ArrayMatrix<Type>::Get(int index1, int index2) const {
+Type ListMatrix<Type>::Get(int index1, int index2) const {
     return this->value[index1].Get(index2);
 }
 
 template<typename Type>
-int ArrayMatrix<Type>::GetRow() const {
+int ListMatrix<Type>::GetRow() const {
     return this->row;
 }
 
 template<typename Type>
-int ArrayMatrix<Type>::GetColumn() const {
-    return this->column;
-}
-
-template<typename Type>
-float ArrayMatrix<Type>::GetNorm() const {
+float ListMatrix<Type>::GetNorm() const {
     float a = 0;
     for (int i = 0; i < this->row; ++i) {
-        for (int j = 0; j < this->column; ++j) {
+        for (int j = 0; j < this->row; ++j) {
             a += this->value[i].Get(j) * this->value[i].Get(j);
         }
     }
@@ -90,9 +82,9 @@ float ArrayMatrix<Type>::GetNorm() const {
 
 //setters
 template<typename Type>
-ArrayMatrix<Type>* ArrayMatrix<Type>::Sum(ArrayMatrix<Type>* mat2) {
+ListMatrix<Type>* ListMatrix<Type>::Sum(ListMatrix<Type>* mat2) {
     for (int i = 0; i < this->row; ++i) {
-        for (int j = 0; j < this->column; ++j) {
+        for (int j = 0; j < this->row; ++j) {
             Type a = this->value[i].Get(j) + (mat2->GetValue())[i].Get(j);
             this->value[i].Set(a, j);
         }
@@ -101,9 +93,9 @@ ArrayMatrix<Type>* ArrayMatrix<Type>::Sum(ArrayMatrix<Type>* mat2) {
 }
 
 template<typename Type>
-ArrayMatrix<Type>* ArrayMatrix<Type>::Mult(Type a) {
+ListMatrix<Type>* ListMatrix<Type>::Mult(Type a) {
     for (int i = 0; i < this->row; ++i) {
-        for (int j = 0; j < this->column; ++j) {
+        for (int j = 0; j < this->row; ++j) {
             Type b = this->value[i].Get(j) * a;
             this->value[i].Set(b, j);
         }
@@ -112,15 +104,15 @@ ArrayMatrix<Type>* ArrayMatrix<Type>::Mult(Type a) {
 }
 
 template<typename Type>
-ArrayMatrix<Type>* ArrayMatrix<Type>::SumRow(int ind1, int ind2) {
-    for (int j = 0; j < this->column; ++j) {
+ListMatrix<Type>* ListMatrix<Type>::SumRow(int ind1, int ind2) {
+    for (int j = 0; j < this->row; ++j) {
         this->value[ind1].Set(this->value[ind1].Get(j) + this->value[ind2].Get(j), j);
     }
     return this;
 }
 
 template<typename Type>
-ArrayMatrix<Type>* ArrayMatrix<Type>::SumColumn(int ind1, int ind2) {
+ListMatrix<Type>* ListMatrix<Type>::SumColumn(int ind1, int ind2) {
     for (int i = 0; i < this->row; ++i) {
         this->value[i].Set(this->value[i].Get(ind1) + this->value[i].Get(ind2), ind1);
     }
