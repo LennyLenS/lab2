@@ -143,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array_sequence.hpp" />
+    <ClInclude Include="di_matrix_array.hpp" />
+    <ClInclude Include="di_matrix_list.hpp" />
+    <ClInclude Include="di_matrix_menu.hpp" />
     <ClInclude Include="dynamic_array.hpp" />
     <ClInclude Include="linked_list.hpp" />
     <ClInclude Include="list_sequence.hpp" />
